@@ -1,0 +1,45 @@
+.eachJobDetailsContainer {
+  background-color: orange;
+  color: black;
+  margin: 20px;
+}
+
+.companyContainer {
+  display: flex;
+  justify-content: flex-start;
+  background-color: orange;
+}
+
+.companyLogoStyling {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.location-type-lpa-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.hrLineStyling {
+  border-top: 2px solid black;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.lifeAtCompanyContainer {
+  display: flex;
+}
+.detailsContainer {
+  color: black;
+}
+
+.lifeAtCompanyImageStyling {
+  height: 140px;
+  width: 180px;
+}

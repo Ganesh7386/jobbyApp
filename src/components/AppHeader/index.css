@@ -1,0 +1,32 @@
+.NavBarContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #2c364c;
+  box-sizing: content-box;
+}
+
+.navbarButtonStyling {
+  height: 50px;
+  width: 70px;
+  margin: 3px;
+  padding: 2px;
+}
+
+.navbarNavigationList {
+  list-style-type: none;
+  display: flex;
+}
+.headerLinksStyling {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.navbarNavigationList li {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+}

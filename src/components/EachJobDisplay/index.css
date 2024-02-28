@@ -1,0 +1,38 @@
+.companyLogoStyling {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.companyContainer {
+  display: flex;
+  justify-content: flex-start;
+  background-color: orange;
+}
+
+.location-type-lpa-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.overAllContainer {
+  background-color: orange;
+  margin-bottom: 15px;
+  padding: 15px;
+  text-decoration: none;
+}
+.overAllContainer1 {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+}
+.hrLineStyling {
+  border-top: 2px solid black;
+  width: 100%;
+  margin: 10px 0;
+}

@@ -1,0 +1,13 @@
+.HomeContainer {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+  background-size: cover;
+  height: 100vh;
+}
+
+.HomeContainer h1 {
+  color: white;
+}
+
+.HomeContainer p {
+  color: white;
+}

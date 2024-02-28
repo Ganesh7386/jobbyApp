@@ -1,0 +1,20 @@
+.companyContainer {
+  display: flex;
+  justify-content: flex-start;
+  background-color: black;
+  color: white;
+}
+
+.companyLogoStyling {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.eachSimilarJobCardContainer {
+  width: 40%;
+  background-color: black;
+  list-style-type: none;
+}
