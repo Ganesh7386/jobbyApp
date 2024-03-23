@@ -13,9 +13,9 @@ class Login extends Component {
     const {history} = this.props
     console.log(this.props)
     console.log(history)
-    Cookies.set('MY_TOKEN', jwtToken, {expires: 1, path: '/'})
+    Cookies.set('jwt_token', jwtToken, {expires: 1, path: '/'})
 
-    history.push('/')
+    history.replace('/')
   }
 
   handleVerifyingDetails = async () => {
@@ -29,14 +29,14 @@ class Login extends Component {
     const loggingApi = 'https://apis.ccbp.in/login'
     const returnedPromise = await fetch(loggingApi, details)
     // console.log(returnedPromise)
+    const returnedJsonObj = await returnedPromise.json()
+    console.log(returnedJsonObj)
 
     if (returnedPromise.ok) {
       console.log('user details verified')
       this.setState({errorMsg: ''})
-      const returnedJsonObj = await returnedPromise.json()
       this.handleSuccessfullLogin(returnedJsonObj.jwt_token)
     } else {
-      const returnedJsonObj = await returnedPromise.json()
       console.log(returnedJsonObj.error_msg)
       this.setState({errorMsg: returnedJsonObj.error_msg})
     }
@@ -57,31 +57,43 @@ class Login extends Component {
 
   render() {
     const {username, password, errorMsg} = this.state
-    const token = Cookies.get('MY_TOKEN')
+    const token = Cookies.get('jwt_token')
     console.log(token)
     if (token !== undefined) {
       return <Redirect to="/" />
     }
     return (
-      <form onSubmit={this.handleSubmittingDetails}>
-        <label htmlFor="username">Username</label>
-        <input
-          value={username}
-          id="username"
-          type="text"
-          onChange={this.handleTakingUsername}
+      <>
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+          alt="website logo"
         />
-        <br />
-        <label htmlFor="password">Password</label>
-        <input
-          value={password}
-          id="password"
-          type="text"
-          onChange={this.handleTakingPassword}
-        />
-        <button type="submit">Login</button>
-        <p>{errorMsg}</p>
-      </form>
+        <form onSubmit={this.handleSubmittingDetails}>
+          <label style={{color: 'white'}} htmlFor="USERNAME">
+            USERNAME
+          </label>
+          <input
+            value={username}
+            id="USERNAME"
+            type="text"
+            onChange={this.handleTakingUsername}
+            placeholder="Username"
+          />
+          <br />
+          <label style={{color: 'white'}} htmlFor="PASSWORD">
+            PASSWORD
+          </label>
+          <input
+            value={password}
+            id="PASSWORD"
+            type="password"
+            onChange={this.handleTakingPassword}
+            placeholder="Password"
+          />
+          <button type="submit">Login</button>
+          <p style={{color: 'white'}}>{errorMsg}</p>
+        </form>
+      </>
     )
   }
 }

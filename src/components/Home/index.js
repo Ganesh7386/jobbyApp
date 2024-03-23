@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Redirect} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './index.css'
 
@@ -13,7 +13,7 @@ class Home extends Component {
   }
 
   getProfileDetailsWithToken = async () => {
-    const token = Cookies.get('MY_TOKEN')
+    const token = Cookies.get('jwt_token')
 
     const apiDetails = {
       method: 'GET',
@@ -30,27 +30,37 @@ class Home extends Component {
     console.log(profilePromiseJson.profile_details)
   }
 
-  goingToJobsSection = () => {
-    const {history} = this.props
-    console.log(history)
-    history.push('/jobs')
-  }
+  //   goingToJobsSection = () => {
+  //     const {history} = this.props
+  //     console.log(history)
+  //     history.push('/jobs')
+  //   }
 
   render() {
-    const token = Cookies.get('MY_TOKEN')
+    const token = Cookies.get('jwt_token')
     if (token === undefined) {
       return <Redirect to="/login" />
     }
     return (
       <div className="HomeContainer">
-        <h1>Find The Job That Fits Your Life</h1>
-        <p>
-          Millions of People are searching for jobs , salary information ,
-          company reviews .Find the jobs that fits your abilities and potential
-        </p>
-        <button onClick={this.goingToJobsSection} type="button">
-          Jobs
-        </button>
+        <ul>
+          <li>
+            <h1>Find The Job That Fits Your Life</h1>
+          </li>
+          <li>
+            <p>
+              Millions of People are searching for jobs , salary information ,
+              company reviews .Find the jobs that fits your abilities and
+              potential
+            </p>
+          </li>
+
+          <li>
+            <Link to="/jobs">
+              <button type="button">Find Jobs</button>
+            </Link>
+          </li>
+        </ul>
       </div>
     )
   }

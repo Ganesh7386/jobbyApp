@@ -6,24 +6,31 @@ const HeaderLogoUrl = 'https://assets.ccbp.in/frontend/react-js/logo-img.png'
 
 const Header = props => {
   const handleLogoutFromWebsite = () => {
-    Cookies.remove('MY_TOKEN')
+    Cookies.remove('jwt_token')
     console.log(props)
     const {history} = props
     history.replace('/login')
   }
   const returnComponentAccordingToCookie = () => {
-    const id = Cookies.get('MY_TOKEN')
+    const id = Cookies.get('jwt_token')
     if (id !== undefined) {
       return (
         <div className="NavBarContainer">
-          <img src={HeaderLogoUrl} alt="website logo" className="appLogo" />
+          <Link className="websiteLogoLink" to="/">
+            <img src={HeaderLogoUrl} alt="website logo" className="appLogo" />
+          </Link>
           <ul className="navbarNavigationList">
-            <Link className="headerLinksStyling" to="/">
-              <li>Home</li>
-            </Link>
-            <Link className="headerLinksStyling" to="/jobs">
-              <li>Jobs</li>
-            </Link>
+            <li>
+              <Link className="headerLinksStyling" to="/">
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link className="headerLinksStyling" to="/jobs">
+                Jobs
+              </Link>
+            </li>
           </ul>
           <button
             className="navbarButtonStyling"

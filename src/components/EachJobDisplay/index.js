@@ -10,10 +10,10 @@ function EachJobDisplay(props) {
     <li>
       <Link className="overAllContainer1" to={`/jobs/${eachJobDetails.id}`}>
         <div className="overAllContainer">
-          <div className="companyContainer">
+          <div className="companyContainer" style={{color: 'black'}}>
             <img
               src={eachJobDetails.companyLogoUrl}
-              alt="companyLogo"
+              alt="company logo"
               className="companyLogoStyling"
             />
             <div className="name_ratings_container">
@@ -23,14 +23,14 @@ function EachJobDisplay(props) {
           </div>
           <div className="location-type-lpa-container">
             <>
-              <h5>{eachJobDetails.location}</h5>
-              <h5>{eachJobDetails.employmentType}</h5>
+              <p>{eachJobDetails.location}</p>
+              <p>{eachJobDetails.employmentType}</p>
             </>
-            <h5>{eachJobDetails.packagePerAnnum}</h5>
+            <p>{eachJobDetails.packagePerAnnum}</p>
           </div>
           <hr className="hrLineStyling" />
           <div className="description-container">
-            <p>Description</p>
+            <h1>Description</h1>
             <p>{eachJobDetails.jobDescription}</p>
           </div>
         </div>

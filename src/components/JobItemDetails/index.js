@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 import SimilarJob from '../SimilarJob/index'
+import Skill from '../EachJobDetailsSkills/index'
 import './index.css'
 
 function modifyKeysOfSimilarJobs(arr) {
@@ -47,10 +48,11 @@ function convertJobDetailsWithOutSkills(details) {
   return temp
 }
 
-class EachJobDetails extends Component {
+class JobItemDetails extends Component {
   state = {
     eachJobDetails: {},
     similarJobsList: [],
+    status: 'waiting',
   }
 
   componentDidMount() {
@@ -64,7 +66,7 @@ class EachJobDetails extends Component {
     const {id} = params
     console.log(id)
 
-    const token = Cookies.get('MY_TOKEN')
+    const token = Cookies.get('jwt_token')
 
     const eachJobDetailsUrl = `https://apis.ccbp.in/jobs/${id}`
     const details = {
@@ -74,24 +76,28 @@ class EachJobDetails extends Component {
       },
     }
     const eachJobDetailsPromise = await fetch(eachJobDetailsUrl, details)
-    const eachJobDetailsPromiseJson = await eachJobDetailsPromise.json()
-    console.log(eachJobDetailsPromiseJson)
-    const modifiedEachJobDetails = convertJobDetailsWithOutSkills(
-      eachJobDetailsPromiseJson.job_details,
-    )
-    const modifiedSimilarJobsObj = modifyKeysOfSimilarJobs(
-      eachJobDetailsPromiseJson.similar_jobs,
-    )
-    // console.log(modifiedEachJobDetails)
-    // console.log(modifiedSimilarJobsObj)
-    this.setState({
-      eachJobDetails: modifiedEachJobDetails,
-      similarJobsList: modifiedSimilarJobsObj,
-    })
+    if (eachJobDetailsPromise.ok) {
+      const eachJobDetailsPromiseJson = await eachJobDetailsPromise.json()
+      console.log(eachJobDetailsPromiseJson)
+      const modifiedEachJobDetails = convertJobDetailsWithOutSkills(
+        eachJobDetailsPromiseJson.job_details,
+      )
+      const modifiedSimilarJobsObj = modifyKeysOfSimilarJobs(
+        eachJobDetailsPromiseJson.similar_jobs,
+      )
+      // console.log(modifiedEachJobDetails)
+      // console.log(modifiedSimilarJobsObj)
+      this.setState({
+        eachJobDetails: modifiedEachJobDetails,
+        similarJobsList: modifiedSimilarJobsObj,
+        status: 'success',
+      })
+    } else {
+      this.setState({status: 'failure'})
+    }
   }
 
-  render() {
-    const token = Cookies.get('MY_TOKEN')
+  renderSuccessfullUi = () => {
     const {eachJobDetails, similarJobsList} = this.state
     const {skills} = eachJobDetails
     const {lifeAtCompany} = eachJobDetails
@@ -101,15 +107,12 @@ class EachJobDetails extends Component {
     console.log('************')
     console.log(eachJobDetails)
     console.log(similarJobsList)
-    if (token === undefined) {
-      return <Redirect to="/login" />
-    }
     return (
       <div className="eachJobDetailsContainer">
         <div className="companyContainer">
           <img
             src={eachJobDetails.companyLogoUrl}
-            alt="companyLogo"
+            alt="job details company logo"
             className="companyLogoStyling"
           />
           <div className="name_ratings_container">
@@ -118,55 +121,91 @@ class EachJobDetails extends Component {
           </div>
         </div>
         <div className="location-type-lpa-container">
-          <>
-            <h5>{eachJobDetails.location}</h5>
-            <h5>{eachJobDetails.employmentType}</h5>
-          </>
-          <h5>{eachJobDetails.packagePerAnnum}</h5>
+          <p>{eachJobDetails.location}</p>
+          <p>{eachJobDetails.employmentType}</p>
+          <p>{eachJobDetails.packagePerAnnum}</p>
         </div>
         <hr className="hrLineStyling" />
         <div className="description-container">
-          <p>Description</p>
+          <h1>Description</h1>
+          <a href={eachJobDetails.companyWebsiteUrl}>Visit</a>
           <p>{eachJobDetails.jobDescription}</p>
         </div>
         <h1>Skills</h1>
         <div>
           <ul style={{display: 'flex', listStyleType: 'none'}}>
-            {skills &&
-              skills.map(eachObj => (
-                <li key={eachObj.id}>
-                  <img src={eachObj.imageUrl} alt="skillLogo" />
-                  <p>{eachObj.name}</p>
-                </li>
-              ))}
+            {skills.map(eachObj => (
+              <Skill key={eachObj.name} eachJobDetails={eachObj} />
+            ))}
           </ul>
         </div>
         <div className="lifeAtCompanyContainer">
-          {lifeAtCompany && (
-            <>
-              <div className="detailsContainer">
-                <h1>Life At Company</h1>
-                <p>{lifeAtCompany && lifeAtCompany.description}</p>
-              </div>
-              <img
-                src={lifeAtCompany.imageUrl}
-                alt="lifeAtCompanyImg"
-                className="lifeAtCompanyImageStyling"
-              />
-            </>
-          )}
+          <h1>Life At Company</h1>
+          <div className="detailsContainer">
+            <p>{lifeAtCompany.description}</p>
+          </div>
+          <img
+            src={lifeAtCompany.imageUrl}
+            alt="life at company"
+            className="lifeAtCompanyImageStyling"
+          />
         </div>
         <div className="similarJobsContainer">
+          <h1>Similar Jobs</h1>
           <ul>
-            {similarJobsList &&
-              similarJobsList.map(eachObj => (
-                <SimilarJob eachJobDetails={eachObj} key={eachObj.id} />
-              ))}
+            {similarJobsList.map(eachObj => (
+              <SimilarJob key={eachObj.id} eachJobDetails={eachObj} />
+            ))}
           </ul>
         </div>
       </div>
     )
   }
+
+  renderFailedUi = () => (
+    <div
+      data-testid="loader"
+      style={{backgroundColor: 'black', color: 'white'}}
+    >
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        style={{height: '100px', width: '100px'}}
+      />
+      <h1>Oops! Something Went Wrong</h1>
+      <p>We cannot seem to find the page you are looking for</p>
+      <button
+        type="button"
+        onClick={() => {
+          this.setState({status: 'waiting'}, this.getEachJobDetails)
+        }}
+      >
+        Retry
+      </button>
+    </div>
+  )
+
+  renderOverAllUiAccdToStatus = () => {
+    const {status} = this.state
+    const token = Cookies.get('jwt_token')
+    if (token === undefined) {
+      return <Redirect to="/login" />
+    }
+    switch (status) {
+      case 'waiting':
+        return <h1 style={{color: 'white'}}>Waiting</h1>
+      case 'success':
+        return this.renderSuccessfullUi()
+      case 'failure':
+        return this.renderFailedUi()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    return this.renderOverAllUiAccdToStatus()
+  }
 }
 
-export default EachJobDetails
+export default JobItemDetails

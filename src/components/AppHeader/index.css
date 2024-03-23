@@ -29,4 +29,11 @@
   margin-left: 15px;
   text-decoration: none;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  background-color: orange;
+}
+
+.websiteLogoLink {
+  color: inherit;
 }

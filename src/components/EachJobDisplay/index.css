@@ -10,6 +10,7 @@
   display: flex;
   justify-content: flex-start;
   background-color: orange;
+  color: black;
 }
 
 .location-type-lpa-container {
