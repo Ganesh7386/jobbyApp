@@ -318,6 +318,10 @@ class Jobs extends Component {
     const {employmentTypes, selectedSalaryRange, searchValue} = this.state
     return (
       <div className="overAllJobsContainer">
+        <div className="floatingContainer">
+          <h1>This is floating</h1>
+          <button type="button">Login</button>
+        </div>
         <div className="SearchFilterInputForSmallMediumUi">
           <input
             type="search"
