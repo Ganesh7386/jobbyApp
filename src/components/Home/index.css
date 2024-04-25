@@ -29,3 +29,11 @@
   background-color: none;
   color: inherit;
 }
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .homeStyling {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/home-sm-bg.png');
+    background-size: cover;
+    justify-content: flex-start;
+  }
+}

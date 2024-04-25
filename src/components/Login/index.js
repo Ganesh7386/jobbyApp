@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {withRouter, Redirect} from 'react-router-dom'
+import './index.css'
 
 class Login extends Component {
   state = {
@@ -63,37 +64,46 @@ class Login extends Component {
       return <Redirect to="/" />
     }
     return (
-      <>
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-          alt="website logo"
-        />
-        <form onSubmit={this.handleSubmittingDetails}>
-          <label style={{color: 'white'}} htmlFor="USERNAME">
-            USERNAME
-          </label>
-          <input
-            value={username}
-            id="USERNAME"
-            type="text"
-            onChange={this.handleTakingUsername}
-            placeholder="Username"
+      <div className="loginPageContainer">
+        <form
+          className="loginFormContainer"
+          onSubmit={this.handleSubmittingDetails}
+        >
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+            alt="website logo"
+            className="logoStyling"
           />
-          <br />
-          <label style={{color: 'white'}} htmlFor="PASSWORD">
-            PASSWORD
-          </label>
-          <input
-            value={password}
-            id="PASSWORD"
-            type="password"
-            onChange={this.handleTakingPassword}
-            placeholder="Password"
-          />
-          <button type="submit">Login</button>
-          <p style={{color: 'white'}}>{errorMsg}</p>
+          <div>
+            <label style={{color: 'white'}} htmlFor="USERNAME">
+              USERNAME
+            </label>
+            <input
+              value={username}
+              id="USERNAME"
+              type="text"
+              onChange={this.handleTakingUsername}
+              placeholder="Username"
+            />
+          </div>
+          <div>
+            <label style={{color: 'white'}} htmlFor="PASSWORD">
+              PASSWORD
+            </label>
+            <input
+              value={password}
+              id="PASSWORD"
+              type="password"
+              onChange={this.handleTakingPassword}
+              placeholder="Password"
+            />
+          </div>
+          <button className="submitBtnStyling" type="submit">
+            Login
+          </button>
+          <p style={{color: 'red'}}>{errorMsg}</p>
         </form>
-      </>
+      </div>
     )
   }
 }
