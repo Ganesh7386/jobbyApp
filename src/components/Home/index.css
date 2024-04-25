@@ -5,11 +5,27 @@
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  row-gap: 20px;
 }
 
-.homeBuuttonStyling {
+.homebuuttonstyling {
   height: 50px;
   width: 100px;
   border-radius: 20px;
   background-color: #6366f1;
+  font-size: 20px;
+  color: white;
+  border: none;
+}
+
+.homeStyling button :hover {
+  background-color: black;
+  border: 3px solid #6366f1;
+  color: #6366f1;
+}
+
+.lonkStyling {
+  background-color: none;
+  color: inherit;
 }

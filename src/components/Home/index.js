@@ -12,9 +12,9 @@ class Home extends Component {
         Find
         uhdsknajhucnkjnkjncjknkjnakjkjankjnajkdnkjhiueaknkdjandjknkjdbjkbkjj
       </p>
-      <Link to="/jobs">
-        <button className="homeBuuttonStyling" type="button">
-          jobs
+      <Link className="lonkStyling" to="/jobs">
+        <button className="homebuuttonstyling" type="button">
+          Jobs
         </button>
       </Link>
     </div>
