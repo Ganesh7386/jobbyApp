@@ -3,9 +3,15 @@
   background-size: cover;
   height: 100vh;
 }
+.HomeContainer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 .HomeContainer h1 {
   color: white;
+  font-size: 40px;
 }
 
 .HomeContainer p {
