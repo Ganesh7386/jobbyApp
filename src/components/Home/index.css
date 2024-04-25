@@ -1,19 +1,15 @@
-.HomeContainer {
+.homeStyling {
+  height: 100vh;
   background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
   background-size: cover;
-  height: 100vh;
-}
-.HomeContainer ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
 
-.HomeContainer h1 {
-  color: white;
-  font-size: 40px;
-}
-
-.HomeContainer p {
-  color: white;
+.homeBuuttonStyling {
+  height: 50px;
+  width: 100px;
+  border-radius: 20px;
+  background-color: #6366f1;
 }

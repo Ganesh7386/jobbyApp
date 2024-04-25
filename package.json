@@ -12,13 +12,15 @@
     "@testing-library/user-event": "12.6.2",
     "chalk": "4.1.0",
     "history": "5.0.0",
-    "msw": "0.28.1",
     "js-cookie": "2.2.1",
+    "msw": "0.28.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-icons": "4.2.0",
     "react-loader-spinner": "4.0.0",
-    "react-router-dom": "5.2.0"
+    "react-router-dom": "5.2.0",
+    "styled-component": "2.8.0",
+    "styled-components": "6.1.8"
   },
   "devDependencies": {
     "eslint-config-airbnb": "18.2.1",
