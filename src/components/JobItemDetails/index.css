@@ -1,7 +1,12 @@
 .eachJobDetailsContainer {
-  background-color: white;
-  color: black;
-  margin: 20px;
+  background-color: black;
+  padding: 30px;
+}
+.eachJobDetailedUpperContainer {
+  background-color: #202020;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .companyContainer {
@@ -34,12 +39,36 @@
 
 .lifeAtCompanyContainer {
   display: flex;
+  flex-direction: column;
+  color: white;
 }
 .detailsContainer {
-  color: black;
+  color: white;
 }
 
 .lifeAtCompanyImageStyling {
   height: 140px;
   width: 180px;
+  color: white;
+}
+
+.similarJobsContainer {
+  background-color: transparent;
+}
+
+.similarJobsContainer ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.similarJobsContainer h1 {
+  color: white;
+}
+
+.skillsContainerUl {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  column-gap: 10px;
 }

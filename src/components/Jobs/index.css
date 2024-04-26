@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: stretch;
   background-color: black;
+  padding-right: 17px;
 }
 .floatingContainer {
   width: 200px;
@@ -19,15 +20,14 @@
 
 .leftContainer {
   width: 40%;
-  background-color: orange;
   align-self: stretch;
   padding: 20px;
   right: 20px;
+  color: white;
 }
 
 .rightContainer {
   width: 60%;
-  background-color: pink;
 }
 
 .userDetailsContainer {

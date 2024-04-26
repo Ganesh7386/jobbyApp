@@ -4,7 +4,7 @@ function SimilarJob(props) {
   const {eachJobDetails} = props
   return (
     <li className="eachSimilarJobCardContainer">
-      <div style={{backgroundColor: 'black'}} className="companyContainer">
+      <div style={{backgroundColor: '#202020'}} className="companyContainer">
         <img
           src={eachJobDetails.companyImageUrl}
           alt="similar job company logo"

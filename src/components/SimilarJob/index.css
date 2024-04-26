@@ -1,6 +1,7 @@
 .companyContainer {
   color: white;
-  background-color: black;
+  background-color: #202020;
+  border-radius: 20px;
 }
 
 .companyLogoStyling {
