@@ -141,8 +141,8 @@ class JobItemDetails extends Component {
             </ul>
           </div>
           <div className="lifeAtCompanyContainer">
-            <h1>Life At Company</h1>
             <div className="detailsContainer">
+              <h1>Life At Company</h1>
               <p>{lifeAtCompany.description}</p>
             </div>
             <img
@@ -154,7 +154,7 @@ class JobItemDetails extends Component {
         </div>
         <div className="similarJobsContainer">
           <h1>Similar Jobs</h1>
-          <ul style={{listStyleType: 'none', padding: '0px'}}>
+          <ul className="similarTypeJobsListUlContainer">
             {similarJobsList.map(eachObj => (
               <SimilarJob key={eachObj.id} eachJobDetails={eachObj} />
             ))}

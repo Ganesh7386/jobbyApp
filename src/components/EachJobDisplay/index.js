@@ -10,7 +10,7 @@ function EachJobDisplay(props) {
     <li>
       <Link className="overAllContainer1" to={`/jobs/${eachJobDetails.id}`}>
         <div className="overAllContainer">
-          <div className="companyContainer" style={{color: 'black'}}>
+          <div className="companyContainer" style={{color: 'white'}}>
             <img
               src={eachJobDetails.companyLogoUrl}
               alt="company logo"

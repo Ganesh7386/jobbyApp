@@ -2,10 +2,8 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
   background-color: #202020;
-  box-sizing: content-box;
+  width: 100%;
 }
 
 .NavBarContainerForSmallMediumDevices {
@@ -15,7 +13,8 @@
   padding-left: 15px;
   padding-right: 15px;
   background-color: #202020;
-  box-sizing: content-box;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .navbarButtonStyling {
@@ -43,8 +42,17 @@
   justify-content: space-between;
 }
 
-.websiteLogoLink {
-  color: inherit;
+/* .websiteLogoLink {
+  width: 20%;
+  height: 90%;
+} */
+
+.appLogo {
+  min-width: 40%;
+  width: 60%;
+  max-width: 90%;
+  height: 100%;
+  flex-shrink: 3;
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
@@ -55,10 +63,13 @@
     height: 30px;
     width: 30px;
   }
-  .navbarButtonStylingForSmallMedium {
-    background-color: transparent;
+  .NavBarContainerForSmallMediumDevices {
+    background-color: #202020;
     color: white;
     border: none;
+    display: flex;
+    column-width: 10%;
+    width: 100%;
   }
 }
 

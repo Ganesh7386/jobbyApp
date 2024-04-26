@@ -2,6 +2,9 @@
   color: white;
   background-color: #202020;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 .companyLogoStyling {
@@ -10,4 +13,50 @@
   border-radius: 20px;
   margin-top: 10px;
   margin-right: 10px;
+}
+.location_employment_details_container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.description_type_location_container h1 {
+  font-size: 20px;
+}
+
+.description_type_location_container p {
+  font-size: 13px;
+}
+
+.companyDetailsContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5%;
+}
+
+.companyDetailsContainer img {
+  align-self: center;
+  height: 60px;
+  width: 60px;
+}
+
+.companyDetailsContainer div h1 {
+  font-size: 25px;
+}
+
+@media (min-width: 577px) and (max-width: 800px) {
+  .eachSimilarJobCardContainer {
+    width: 45%;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1300px) {
+  .eachSimilarJobCardContainer {
+    width: 30%;
+  }
+}
+
+@media (min-width: 1301px) {
+  .eachSimilarJobCardContainer {
+    width: 20%;
+  }
 }
