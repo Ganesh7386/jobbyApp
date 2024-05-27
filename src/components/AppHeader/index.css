@@ -22,6 +22,14 @@
   width: 70px;
   margin: 3px;
   padding: 2px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 3px;
+}
+.navbarButtonStyling:hover {
+  background-color: #4f46e5;
+  border-radius: 10px;
 }
 
 .navbarNavigationList {
