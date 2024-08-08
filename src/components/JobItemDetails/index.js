@@ -109,50 +109,52 @@ class JobItemDetails extends Component {
     console.log(similarJobsList)
     return (
       <div className="eachJobDetailsContainer">
-        <div className="companyContainer">
-          <img
-            src={eachJobDetails.companyLogoUrl}
-            alt="job details company logo"
-            className="companyLogoStyling"
-          />
-          <div className="name_ratings_container">
-            <h3>{eachJobDetails.title}</h3>
-            <p>rating : {eachJobDetails.rating}</p>
+        <div className="eachJobDetailedUpperContainer">
+          <div className="companyContainer">
+            <img
+              src={eachJobDetails.companyLogoUrl}
+              alt="job details company logo"
+              className="companyLogoStyling"
+            />
+            <div className="name_ratings_container">
+              <h3>{eachJobDetails.title}</h3>
+              <p>rating : {eachJobDetails.rating}</p>
+            </div>
           </div>
-        </div>
-        <div className="location-type-lpa-container">
-          <p>{eachJobDetails.location}</p>
-          <p>{eachJobDetails.employmentType}</p>
-          <p>{eachJobDetails.packagePerAnnum}</p>
-        </div>
-        <hr className="hrLineStyling" />
-        <div className="description-container">
-          <h1>Description</h1>
-          <a href={eachJobDetails.companyWebsiteUrl}>Visit</a>
-          <p>{eachJobDetails.jobDescription}</p>
-        </div>
-        <h1>Skills</h1>
-        <div>
-          <ul style={{display: 'flex', listStyleType: 'none'}}>
-            {skills.map(eachObj => (
-              <Skill key={eachObj.name} eachJobDetails={eachObj} />
-            ))}
-          </ul>
-        </div>
-        <div className="lifeAtCompanyContainer">
-          <h1>Life At Company</h1>
-          <div className="detailsContainer">
-            <p>{lifeAtCompany.description}</p>
+          <div className="location-type-lpa-container">
+            <p>{eachJobDetails.location}</p>
+            <p>{eachJobDetails.employmentType}</p>
+            <p>{eachJobDetails.packagePerAnnum}</p>
           </div>
-          <img
-            src={lifeAtCompany.imageUrl}
-            alt="life at company"
-            className="lifeAtCompanyImageStyling"
-          />
+          <hr className="hrLineStyling" />
+          <div className="description-container">
+            <h1>Description</h1>
+            <a href={eachJobDetails.companyWebsiteUrl}>Visit</a>
+            <p>{eachJobDetails.jobDescription}</p>
+          </div>
+          <h1>Skills</h1>
+          <div>
+            <ul className="skillsContainerUl">
+              {skills.map(eachObj => (
+                <Skill key={eachObj.name} eachJobDetails={eachObj} />
+              ))}
+            </ul>
+          </div>
+          <div className="lifeAtCompanyContainer">
+            <div className="detailsContainer">
+              <h1>Life At Company</h1>
+              <p>{lifeAtCompany.description}</p>
+            </div>
+            <img
+              src={lifeAtCompany.imageUrl}
+              alt="life at company"
+              className="lifeAtCompanyImageStyling"
+            />
+          </div>
         </div>
         <div className="similarJobsContainer">
           <h1>Similar Jobs</h1>
-          <ul>
+          <ul className="similarTypeJobsListUlContainer">
             {similarJobsList.map(eachObj => (
               <SimilarJob key={eachObj.id} eachJobDetails={eachObj} />
             ))}

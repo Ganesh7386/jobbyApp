@@ -1,13 +1,18 @@
 .eachJobDetailsContainer {
-  background-color: white;
-  color: black;
-  margin: 20px;
+  background-color: black;
+  padding: 15px;
+}
+.eachJobDetailedUpperContainer {
+  background-color: #202020;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .companyContainer {
   display: flex;
   justify-content: flex-start;
-  background-color: white;
+  background-color: transparent;
 }
 
 .companyLogoStyling {
@@ -34,12 +39,64 @@
 
 .lifeAtCompanyContainer {
   display: flex;
+  flex-direction: row;
+  color: white;
 }
-.detailsContainer {
-  color: black;
+.lifeAtCompanyContainer .detailsContainer {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-right: 5%;
+}
+.lifeAtCompanyContainer img {
+  width: 30%;
+  height: 80%;
 }
 
 .lifeAtCompanyImageStyling {
   height: 140px;
   width: 180px;
+  color: white;
+}
+
+.similarJobsContainer {
+  background-color: transparent;
+}
+
+.similarJobsContainer ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 0px;
+}
+
+.similarJobsContainer h1 {
+  color: white;
+}
+
+.skillsContainerUl {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+
+@media (min-width: 0px) and (max-width: 576px) {
+  .similarJobsContainer ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 0px;
+  }
+}
+
+@media (min-width: 577px) {
+  .similarJobsContainer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 10px;
+  }
 }

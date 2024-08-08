@@ -258,7 +258,13 @@ class Jobs extends Component {
     return (
       <>
         <h1>Jobs List</h1>
-        <ul style={{listStyleType: 'none'}}>
+        <ul
+          style={{
+            listStyleType: 'none',
+            padding: '0px',
+            margin: '0px',
+          }}
+        >
           {filteredJobs.map(eachJob => (
             <EachJobDisplay key={eachJob.id} eachJobDetails={eachJob} />
           ))}
@@ -312,6 +318,27 @@ class Jobs extends Component {
     const {employmentTypes, selectedSalaryRange, searchValue} = this.state
     return (
       <div className="overAllJobsContainer">
+        <div className="floatingContainer">
+          <h1>This is floating</h1>
+          <button type="button">Login</button>
+        </div>
+        <div className="SearchFilterInputForSmallMediumUi">
+          <input
+            type="search"
+            onChange={this.handleSearchingForJob}
+            value={searchValue}
+            placeholder="search..."
+            className="inputEle"
+          />
+          <button
+            type="button"
+            data-testid="searchButton"
+            onClick={this.searchJobs}
+            aria-label="Search Jobs"
+          >
+            <BsSearch className="search-icon" />
+          </button>
+        </div>
         <div className="leftContainer">
           <div className="userDetailsContainer">
             {this.renderUserProfileUiAccdToStatus()}
@@ -355,19 +382,22 @@ class Jobs extends Component {
           </div>
         </div>
         <div className="rightContainer">
-          <input
-            type="search"
-            onChange={this.handleSearchingForJob}
-            value={searchValue}
-          />
-          <button
-            type="button"
-            data-testid="searchButton"
-            onClick={this.searchJobs}
-            aria-label="Search Jobs"
-          >
-            <BsSearch className="search-icon" />
-          </button>
+          <div className="SearchFilterInputForLargerDevicesUi">
+            <input
+              type="search"
+              onChange={this.handleSearchingForJob}
+              value={searchValue}
+              placeholder="Search ..."
+            />
+            <button
+              type="button"
+              data-testid="searchButton"
+              onClick={this.searchJobs}
+              aria-label="Search Jobs"
+            >
+              <BsSearch className="search-icon" />
+            </button>
+          </div>
           {this.renderJobsListUIAccdToStatus()}
         </div>
       </div>

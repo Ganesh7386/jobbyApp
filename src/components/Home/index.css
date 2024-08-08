@@ -1,12 +1,14 @@
 .homeStyling {
   height: 100vh;
-  background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
-  background-size: cover;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   row-gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 10px;
 }
 
 .homebuuttonstyling {
@@ -28,4 +30,20 @@
 .lonkStyling {
   background-color: none;
   color: inherit;
+}
+
+@media screen and (max-width: 750px) {
+  .homeStyling {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/home-sm-bg.png');
+    background-size: cover;
+    padding-top: 10%;
+    width: 100vw;
+  }
+}
+
+@media screen and (min-width: 751px) {
+  .homeStyling {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+    background-size: cover;
+  }
 }
